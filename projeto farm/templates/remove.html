@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styleremove.css') }}">
+
+    <title>Remover Itens</title>
+    <script>
+        // Função que seleciona ou desmarca todos os checkboxes
+        function toggleSelectAll(selectAllCheckbox) {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = selectAllCheckbox.checked; // Seleciona ou desmarca todos os checkboxes
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Remover Itens</h1>
+    <form method="POST">
+        <label>Selecione os itens que deseja remover:</label><br><br>
+
+        <!-- Checkbox "Selecionar Todos" -->
+        <input type="checkbox" id="selectAll" onclick="toggleSelectAll(this)">
+        <label for="selectAll">Selecionar Todos</label><br><br>
+
+        {% for item in items %}
+            <input type="checkbox" name="item_id" value="{{ item.id }}">
+            <label for="item_{{ item.id }}">{{ item.name }}</label><br>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Remover Selecionados">
+    </form>
+    <a href="/">Voltar</a>
+</body>
+</html>

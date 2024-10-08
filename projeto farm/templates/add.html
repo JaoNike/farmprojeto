@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Item</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styleadd.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Adicionar Item</h1>
+    <form id="addForm" method="POST">
+        <label for="item">Nome do item:</label><br>
+        <input type="text" id="item" name="item" required><br><br>
+        <input type="submit" value="Adicionar">
+    </form>
+    
+    <h2>Itens já existentes</h2>
+    <ul id="itemList">
+        {% for item in items %}
+            <li>{{ item.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Voltar</a>
+
+    <script>
+        $(document).ready(function(){
+            $('#addForm').on('submit', function(event){
+                event.preventDefault(); // Previne o envio tradicional do formulário
+                var itemName = $('#item').val(); // Pega o valor do campo de entrada
+
+                $.ajax({
+                    url: '/add',  // Rota para adicionar item
+                    method: 'POST',
+                    data: {item: itemName},
+                    success: function(response) {
+                        // Atualiza a lista de itens sem recarregar a página
+                        $('#itemList').html(response);
+                        $('#item').val(''); // Limpa o campo de entrada
+                    },
+                    error: function() {
+                        alert('Erro ao adicionar o item.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

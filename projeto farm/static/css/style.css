@@ -1,0 +1,71 @@
+/* Estilo global - reset de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo para o body da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Cor de fundo suave */
+    color: #333; /* Cor do texto */
+    display: flex; /* Flexbox para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Altura da tela inteira */
+}
+
+/* Estilo para o container que envolve tudo */
+.container {
+    background-color: #fff; /* Fundo branco */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centraliza o texto */
+    max-width: 500px; /* Largura máxima */
+    width: 100%; /* Ocupar 100% da largura disponível */
+}
+
+/* Estilo para o título (h1) */
+h1 {
+    font-size: 26px; /* Tamanho da fonte */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    color: #333; /* Cor do texto */
+}
+
+/* Estilo para a div que contém os botões */
+.buttons {
+    display: flex; /* Flexbox para os botões */
+    flex-direction: column; /* Botões empilhados em colunas */
+    gap: 15px; /* Espaçamento entre os botões */
+}
+
+/* Estilo para os botões */
+.btn {
+    background-color: #007BFF; /* Cor de fundo azul */
+    color: white; /* Cor do texto branco */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-decoration: none; /* Remove o sublinhado */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: background-color 0.3s ease; /* Transição suave no hover */
+    text-align: center; /* Centraliza o texto no botão */
+}
+
+/* Efeito hover nos botões */
+.btn:hover {
+    background-color: #0056b3; /* Cor do fundo ao passar o mouse */
+}
+
+/* Responsividade: botões lado a lado em telas maiores */
+@media (min-width: 768px) {
+    .buttons {
+        flex-direction: row; /* Botões lado a lado */
+        justify-content: space-between; /* Espaço entre eles */
+    }
+
+    .btn {
+        width: 45%; /* Cada botão ocupa 45% da largura do container */
+    }
+}

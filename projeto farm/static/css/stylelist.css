@@ -1,0 +1,50 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+/* Estilo do cabeçalho */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos da lista de itens */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+ul li {
+    background-color: #e2e2e2;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+ul li:hover {
+    background-color: #d1d1d1;
+}
+
+/* Estilo do link "Voltar" */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+a:hover {
+    color: #4CAF50;
+}
